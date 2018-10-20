@@ -6,22 +6,20 @@ import * as BooksAPI from '../../BooksAPI'
 
 class Mainpage extends React.Component{
 
-constructor(props){
-  super(props)
-  this.state(
-    books =[]
-  )
+  constructor(props){
+    super(props)
+    this.state ={
+      books: []
+    }
+  }
+  componentDidMount(){
+    BooksAPI.getAll()
+    .then(Responsebooks=>{
+      console.log(Responsebooks)
+      this.setState({books: Responsebooks})
+    });
 }
 
-
-  componentdidmount(){
-    BooksAPI.getAll()
-    .then(response => {
-      console.log(response)
-      this.setState((books: repsonse))
-
-    });
-  }
   render(){
     return(
 
@@ -31,9 +29,9 @@ constructor(props){
       </div>
       <div className="list-books-content">
         <div>
-        <Shelf />
-        <Shelf />
-        <Shelf />
+        <Shelf name="currently Reading" books={this.state.books.filter(b=>b.shelf === "currentlyReading")}/>
+        <Shelf name="Want to Read" books={this.state.books.filter(b=>b.shelf === "wantToRead")}/>
+        <Shelf name="read" books={this.state.books.filter(b=>b.shelf ==="Read")}/>
 
 
 
