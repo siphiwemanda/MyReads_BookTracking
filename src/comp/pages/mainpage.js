@@ -9,14 +9,14 @@ class Mainpage extends React.Component{
   constructor(props){
     super(props)
     this.state ={
-      books: []
+      booksArray: []
     }
   }
   componentDidMount(){
     BooksAPI.getAll()
     .then(Responsebooks=>{
       console.log(Responsebooks)
-      this.setState({books: Responsebooks})
+      this.setState({booksArray: Responsebooks})
     });
 }
 
@@ -29,9 +29,9 @@ class Mainpage extends React.Component{
       </div>
       <div className="list-books-content">
         <div>
-        <Shelf name="currently Reading" books={this.state.books.filter(b=>b.shelf === "currentlyReading")}/>
-        <Shelf name="Want to Read" books={this.state.books.filter(b=>b.shelf === "wantToRead")}/>
-        <Shelf name="read" books={this.state.books.filter(b=>b.shelf ==="Read")}/>
+        <Shelf Name="currently Reading" Allbooks={this.state.booksArray.filter(bfilter=>bfilter.shelf === "currentlyReading")}/>
+        <Shelf Name="Want to Read" Allbooks={this.state.booksArray.filter(bfilter=>bfilter.shelf === "wantToRead")}/>
+        <Shelf Name="read" Allbooks={this.state.booksArray.filter(bfilter=>bfilter.shelf ==="Read")}/>
 
 
 

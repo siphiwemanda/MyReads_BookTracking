@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Book extends React.Component{
   componentDidMount(){
-    console.log("hello")
+    console.log(this)
   }
   render(){
     return(
@@ -21,8 +21,9 @@ class Book extends React.Component{
           </select>
         </div>
       </div>
-      <div className="book-title">this.props.books.title[1] || "no title..."}</div>
-      <div className="book-authors">{this.props.books.authors[1] || "no authors..."}</div>
+      <div className="book-title" > {this.props.Book.title || "no title..."}</div>
+      <div className="book-authors"> {this.props.Book.authors[0] || "no authors..."}</div>
+
     </div>
   </li>
 
