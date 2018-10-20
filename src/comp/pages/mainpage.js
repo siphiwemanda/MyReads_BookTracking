@@ -22,11 +22,11 @@ class Mainpage extends React.Component{
 updatebook = (book, shelf) => {
   BooksAPI.update(book, shelf)
   .then(updateResponse => {
-    book.shelf = shelf
+    book.shelf = shelf;
     this.setState(state =>({
-      Books: state.books.filter(b => b.id === book.id).concat({book})
+      booksArray: state.booksArray.filter(a => a.id !== book.id).concat([book])
     }));
-  })
+  });
 }
 
 
@@ -40,9 +40,9 @@ updatebook = (book, shelf) => {
       </div>
       <div className="list-books-content">
         <div>
-        <Shelf updatebook.{this.props.updateBook} Name="currently Reading" Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")} />
-        <Shelf updatebook.{this.props.updateBook} Name="Want to Read" Allbooks={this.state.booksArray.filter(x => x.shelf === "wantToRead")} />
-        <Shelf updatebook.{this.props.updateBook} Name="read" Allbooks={this.state.booksArray.filter(x => x.shelf === "Read")} />
+        <Shelf updatebook={this.updatebook} Name="Currently Reading" Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")} />
+        <Shelf updatebook={this.updatebook} Name="Want To Read" Allbooks={this.state.booksArray.filter(x => x.shelf === "wantToRead")} />
+        <Shelf updatebook={this.updatebook} Name="Read" Allbooks={this.state.booksArray.filter(x => x.shelf === "read")} />
         </div>
 
 
