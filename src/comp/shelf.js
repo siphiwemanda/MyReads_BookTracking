@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import book from './book'
+import Book from './book.js'
 
 class Shelf extends React.Component{
   componentDidMount(){
@@ -13,7 +13,7 @@ class Shelf extends React.Component{
         <div className="bookshelf-books">
           <ol className="books-grid">
           {
-            this.props.books.map((book, key) =>)
+            this.props.books.map((book, key) => < Book Book={book} key ={key}/>)
           }
 
 
