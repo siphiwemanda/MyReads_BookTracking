@@ -28,8 +28,8 @@ class Book extends React.Component{
           </select>
         </div>
       </div>
-      <div className="book-title" > {this.props.book.title || "no title..."}</div>
-      <div className="book-authors"> {this.props.book.authors[0] || "no authors..."}</div>
+      <div className="book-title" > {this.props.book.title || "No Title..."}</div>
+      <div className="book-authors"> {this.props.book.authors || "No Authors..."}</div>
 
     </div>
   </li>

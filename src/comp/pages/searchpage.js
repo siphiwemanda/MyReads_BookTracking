@@ -9,38 +9,39 @@ class searchpage extends React.Component{
     super(props)
     this.state = {
       searchArray: [],
-      results: [],
-      query: ""
+      resultsArray: [],
+      find: ""
     }
   }
 
   componentDidMount(){
+    console.log(this)
   BooksAPI.getAll()
   .then(searchrespons =>{
     this.setState({searchArray: searchrespons})
   });
 }
 
-updateQuery =(query) => {
-  this.setState({query: query}, this.submitSearch);
+updateFind =(find) => {
+  this.setState({find: find}, this.submitSearch);
 }
 
 submitSearch(){
-  if(this.state.query ===''|| this.state.query === undefined) {
+  if(this.state.find ===''|| this.state.find === undefined) {
     return this.setState({results:[]});
   }
-  BooksAPI.search(this.state.query.trim()).then(res=>{
-    if(res.error){
-      return this.setState({results: []})
+  BooksAPI.search(this.state.find.trim()).then(searchres=>{
+    if(searchres.error){
+      return this.setState({resultsArray: []})
     }
   else{
-    res.forEach(b=> {
+    searchres.forEach(b=> {
       let f = this.state.searchArray.filter(B=> B.id === b.id);
       if(f[0]){
         b.shelf=f[0].shelf;
       }
     });
-    return this.setState({results: res});
+    return this.setState({resultsArray: searchres});
   }
 })
 }
@@ -52,7 +53,7 @@ submitSearch(){
     .then(updateResponse => {
       book.shelf = shelf
       this.setState(state =>({
-        booksArray: state.booksArray.filter(A=> A.id !== book.id).concat([book])
+        searchArray: state.searchArray.filter(A=> A.id !== book.id).concat([book])
       }));
     })
   }
@@ -64,16 +65,15 @@ submitSearch(){
           <Link className="close-search" to="/"Close Link/>
           <div className="search-books-input-wrapper">
 
-            <input type="text" placeholder="Search by title or author" value = {this.state.query}
-            onChange={(event)=> this.updateQuery(event.target.value)}/>
+            <input type="text" placeholder="Search by title or author" value = {this.state.find}
+            onChange={(event)=> this.updateFind(event.target.value)}/>
             </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
-          {this.state.results.map((book, key)=> <Book updatebook={this.updatebook} book={book} key={key} />)
+          <ol className="books-grid">
+          {this.state.resultsArray.map((book, key)=> <Book updatebook={this.updatebook} book={book} key={key} />)
           }
-          {this.state.results.length ===0 ? <div> no search results</div> : null
-        }
+        </ol>
         </div>
       </div>
     );
