@@ -47,10 +47,13 @@ class HomePage extends Component{
 
 
 
-      </div>
-      <div className="open-search">
-        <Link to ='/Search'Link/>
-      </div>
+        </div>
+
+     <div className="open-search">
+        <Link to='/Search'>Add a book</Link>
+    </div>
+
+    
     </div>
   );
 }
