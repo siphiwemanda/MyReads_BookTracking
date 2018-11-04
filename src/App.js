@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
 import { Route } from 'react-router-dom'
-import HomePage from './comp/pages/HomePage.js';
-import Searchpage from './comp/pages/searchpage.js';
+import HomePage from './comp/HomePage.js';
+import Searchpage from './comp/searchpage.js';
 
 class BooksApp extends Component {
 
