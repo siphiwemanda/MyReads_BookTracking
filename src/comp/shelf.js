@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Book from './book.js'
 
-class Shelf extends React.Component{
+class Shelf extends Component{
   componentDidMount(){
     console.log(this)
   }

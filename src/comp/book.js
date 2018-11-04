@@ -1,7 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
-class Book extends React.Component{
+class Book extends Component{
   componentDidMount(){
     console.log(this)
   }

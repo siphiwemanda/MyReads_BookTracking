@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../BooksAPI'
 import Book from '../book'
 
 
-class searchpage extends React.Component{
+class searchpage extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -36,9 +36,9 @@ submitSearch(){
     }
   else{
     searchres.forEach(b=> {
-      let f = this.state.searchArray.filter(B=> B.id === b.id);
-      if(f[0]){
-        b.shelf=f[0].shelf;
+      let x = this.state.searchArray.filter(B=> B.id === b.id);
+      if(x[0]){
+        b.shelf=x[0].shelf;
       }
     });
     return this.setState({resultsArray: searchres});
