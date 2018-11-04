@@ -25,4 +25,4 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 [react router documentation](https://reacttraining.com/react-router/web/guides/philosophy)
 [React Documentation](https://reactjs.org/docs/getting-started.html)
 Book API (Provided by Udacity)
-... and a look of stackoverflow searches!
+... and a lots of stackoverflow searches!
