@@ -44,10 +44,10 @@ class searchpage extends Component{
   updatebook = (book, shelf) => {
     BooksAPI.update(book, shelf)
     .then(updateResponse => {
-      book.shelf = shelf
+      book.shelf = shelf;
       this.setState(state =>({
       searchArray: state.searchArray.filter(A=> A.id !== book.id).concat([book])}));
-    })}
+    })};
 
   render(){
     return(

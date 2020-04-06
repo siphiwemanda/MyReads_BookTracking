@@ -4,7 +4,7 @@ import Book from './book.js'
 class Shelf extends Component{
   state ={
 
-  }
+  };
   render(){
     return(
       <div className="bookshelf">
