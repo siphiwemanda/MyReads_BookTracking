@@ -1,5 +1,6 @@
 
 const api = "https://reactnd-books-api.udacity.com"
+const BannedBooksApi = "https://bannedbooks.herokuapp.com"
 
 
 // Generate a unique token for storing your bookshelf data on the backend server.
@@ -18,9 +19,11 @@ export const get = (bookId) =>
     .then(data => data.book)
 
 export const getAll = () =>
-  fetch(`${api}/books`, { headers })
-    .then(res => res.json())
-    .then(data => data.books)
+  fetch(`${api}/books`, { headers }).then(res => res.json()).then(data => data.books)
+
+export const testAPI = () =>
+  fetch(`${BannedBooksApi}/book`).then(response => response.json()).then(data => data.books)
+
 
 export const update = (book, shelf) =>
   fetch(`${api}/books/${book.id}`, {

@@ -7,13 +7,19 @@ import * as BooksAPI from '../BooksAPI'
   constructor(props){
     super(props)
     this.state ={
-      booksArray: []
+      booksArray: [],
+      newBookArray: []
     }
     }
     componentDidMount(){
     BooksAPI.getAll().then(Responsebooks=>{
     this.setState({booksArray: Responsebooks})
+      console.log(Responsebooks)
     });
+    BooksAPI.testAPI().then(response => {
+      this.setState({newBookArray: response})
+      console.log(response)
+    })
     }
     updatebook = (book, shelf) => {
       BooksAPI.update(book, shelf)
@@ -38,14 +44,10 @@ import * as BooksAPI from '../BooksAPI'
           Name="Books"
           Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
         />
-        <Shelf updatebook={this.updatebook}
-          Name="Books"
-          Allbooks={this.state.booksArray.filter(x => x.shelf === "wantToRead")}
-        />
-        <Shelf updatebook={this.updatebook}
-          Name="Read"
-          Allbooks={this.state.booksArray.filter(x => x.shelf === "read")}
-        />
+          <Shelf updatebook={this.updatebook}
+                 Name="Books"
+                 Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
+          />
         </div>
         </div>
         <div className="open-search">

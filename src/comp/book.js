@@ -14,6 +14,7 @@ class Book extends Component{
           backgroundImage: `url("${this.props.book.imageLinks &&
           this.props.book.imageLinks.thumbnail}")`}}>
         </div>
+        {/*
         <div className="book-shelf-changer">
             <select value = {this.props.book.shelf || "none"}
             onChange={(e) => {this.props.updatebook(this.props.book, e.target.value)}}>
@@ -24,6 +25,7 @@ class Book extends Component{
             <option value="none">None</option>
           </select>
         </div>
+        */}
       </div>
       <div className="book-title" >
       {this.props.book.title || "No Title..."}
