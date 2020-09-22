@@ -30,7 +30,7 @@ import * as BooksAPI from '../BooksAPI'
 
     <div className="list-books">
         <div className="list-books-title">
-        <h1>MyReads</h1>
+        <h1>The Banned Book Project</h1>
       </div>
       <div className="list-books-content">
         <div>
