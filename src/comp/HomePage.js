@@ -43,11 +43,11 @@ import * as BooksAPI from '../BooksAPI'
           <Shelf
             Name="Books"
             Allbooks={this.state.booksArray}
-          />
-          <Shelf
-            Name="My Books"
-            Allbooks={this.state.newBookArray}
-          />
+            />
+          {/*<Shelf
+              Name="My Books"
+              Allbooks={this.state.newBookArray}
+              />*/}
 
         </div>
         </div>

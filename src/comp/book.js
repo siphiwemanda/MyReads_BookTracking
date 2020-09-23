@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import yellow from '../icons/yellow.png'
 
 class Book extends Component{
   render(){
@@ -6,9 +7,10 @@ class Book extends Component{
       <li>
       <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{ width: 128, height: 174,
-          backgroundImage: `url("${this.props.book.imageLinks &&
-          this.props.book.imageLinks.thumbnail}")`}}>
+        <div className="book-cover" style={{
+          width: 128,
+          height: 174,
+          backgroundImage: `url("${yellow}")`}}>
         </div>
         {/*
         <div className="book-shelf-changer">
