@@ -12,24 +12,24 @@ import * as BooksAPI from '../BooksAPI'
     }
     }
     componentDidMount(){
-    BooksAPI.getAll().then(Responsebooks=>{
-    this.setState({booksArray: Responsebooks})
-      console.log(Responsebooks)
+    BooksAPI.getAll().then(ResponseBook=>{
+    this.setState({booksArray: ResponseBook})
+      console.log(ResponseBook)
     });
     BooksAPI.testAPI().then(response => {
       this.setState({newBookArray: response})
       console.log(response)
     })
     }
-    updatebook = (book, shelf) => {
-      BooksAPI.update(book, shelf)
-      .then(updateResponse => {
-      book.shelf = shelf;
-    this.setState(state =>({
-      booksArray: state.booksArray.filter(a => a.id !== book.id).concat([book])
-    }));
-    });
-    }
+   updateBook = (book, shelf) => {
+     BooksAPI.update(book, shelf)
+       .then(updateResponse => {
+         book.shelf = shelf;
+         this.setState(state =>({
+           booksArray: state.booksArray.filter(a => a.id !== book.id).concat([book])
+         }));
+       });
+   }
 
   render(){
     return(
@@ -40,14 +40,11 @@ import * as BooksAPI from '../BooksAPI'
       </div>
       <div className="list-books-content">
         <div>
-        <Shelf updatebook={this.updatebook}
-          Name="Books"
-          Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
-        />
-          <Shelf updatebook={this.updatebook}
-                 Name="Books"
-                 Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
+          <Shelf updatebook={this.updateBook}
+                  Name="Books"
+                  Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
           />
+
         </div>
         </div>
         <div className="open-search">
