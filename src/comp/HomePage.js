@@ -40,9 +40,13 @@ import * as BooksAPI from '../BooksAPI'
       </div>
       <div className="list-books-content">
         <div>
-          <Shelf updatebook={this.updateBook}
-                  Name="Books"
-                  Allbooks={this.state.booksArray.filter(x => x.shelf === "currentlyReading")}
+          <Shelf
+            Name="Books"
+            Allbooks={this.state.booksArray}
+          />
+          <Shelf
+            Name="My Books"
+            Allbooks={this.state.newBookArray}
           />
 
         </div>

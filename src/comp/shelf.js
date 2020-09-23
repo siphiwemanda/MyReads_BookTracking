@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Book from './book.js'
 
 class Shelf extends Component{
-  state ={
 
-  };
   render(){
     return(
       <div className="bookshelf">
@@ -12,8 +10,7 @@ class Shelf extends Component{
         <div className="bookshelf-books">
         <ol className="books-grid">
           {this.props.Allbooks.map((book, key) =>
-            < Book updatebook={this.props.updatebook}
-                   book={book} key ={key} />)}
+            < Book book={book} key ={key} />)}
           </ol>
         </div>
       </div>

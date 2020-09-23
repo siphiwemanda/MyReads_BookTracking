@@ -4,7 +4,7 @@ import * as BooksAPI from '../BooksAPI'
 import Book from './book'
 
 
-class searchpage extends Component{
+class searchPage extends Component{
     constructor(props){
       super(props)
       this.state = {
@@ -74,4 +74,4 @@ class searchpage extends Component{
   }
 }
 
-export default searchpage;
+export default searchPage;
