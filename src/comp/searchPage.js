@@ -4,7 +4,7 @@ import * as BooksAPI from '../BooksAPI'
 import Book from './book'
 
 
-class searchpage extends Component{
+class searchPage extends Component{
     constructor(props){
       super(props)
       this.state = {
@@ -15,9 +15,9 @@ class searchpage extends Component{
   }
 
     componentDidMount(){
-      BooksAPI.getAll()
-      .then(searchrespons =>{
-      this.setState({searchArray: searchrespons})
+      BooksAPI.allBooks()
+      .then(response =>{
+      this.setState({searchArray: response})
       });
       }
     updateFind =(find) => {
@@ -27,27 +27,8 @@ class searchpage extends Component{
       if(this.state.find ===''|| this.state.find === undefined) {
         return this.setState({results:[]});
     }
-    BooksAPI.search(this.state.find.trim()).then(searchres=>{
-    if(searchres.error){
-      return this.setState({resultsArray: []})
-    }
-    else{
-    searchres.forEach(b=> {
-      let x = this.state.searchArray.filter(B=> B.id === b.id);
-      if(x[0]){b.shelf=x[0].shelf}
-      });
-    return this.setState({resultsArray: searchres});
-    }
-    })
     }
 
-  updatebook = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    .then(updateResponse => {
-      book.shelf = shelf;
-      this.setState(state =>({
-      searchArray: state.searchArray.filter(A=> A.id !== book.id).concat([book])}));
-    })};
 
   render(){
     return(
@@ -66,7 +47,7 @@ class searchpage extends Component{
          <div className="search-books-results">
           <ol className="books-grid">
           {this.state.resultsArray.map((book, key)=>
-          <Book updatebook={this.updatebook} book={book} key={key} />)}
+          <Book  book={book} key={key} />)}
           </ol>
         </div>
       </div>
@@ -74,4 +55,4 @@ class searchpage extends Component{
   }
 }
 
-export default searchpage;
+export default searchPage;

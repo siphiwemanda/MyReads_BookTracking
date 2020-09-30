@@ -21,7 +21,7 @@ export const get = (bookId) =>
 export const getAll = () =>
   fetch(`${api}/books`, { headers }).then(res => res.json()).then(data => data.books)
 
-export const testAPI = () =>
+export const allBooks = () =>
   fetch(`${BannedBooksApi}/book`).then(response => response.json()).then(data => data.books)
 
 

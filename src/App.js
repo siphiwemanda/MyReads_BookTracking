@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import { Route } from 'react-router-dom'
 import HomePage from './comp/HomePage.js';
-import Searchpage from './comp/searchpage.js';
+import Searchpage from './comp/searchPage.js';
 
 class BooksApp extends Component {
 
