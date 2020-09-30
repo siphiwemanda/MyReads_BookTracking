@@ -8,7 +8,7 @@ class searchPage extends Component{
     constructor(props){
       super(props)
       this.state = {
-      searchArray: [],
+      AllBooks: [],
       resultsArray: [],
       find: ""
     }
@@ -17,17 +17,17 @@ class searchPage extends Component{
     componentDidMount(){
       BooksAPI.allBooks()
       .then(response =>{
-      this.setState({searchArray: response})
+      this.setState({AllBooks: response})
       });
       }
     updateFind =(find) => {
-      this.setState({find: find}, this.submitSearch);
+      this.setState({find: find});
     }
-    submitSearch(){
-      if(this.state.find ===''|| this.state.find === undefined) {
-        return this.setState({results:[]});
+
+    search(){
+
     }
-    }
+
 
 
   render(){
