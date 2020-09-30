@@ -14,7 +14,6 @@ import * as BooksAPI from '../BooksAPI'
       BooksAPI.allBooks().then(response => {
         this.setState({allBooks: response})
         console.log(response)
-        console.log(response[1])
         })
     }
   render(){

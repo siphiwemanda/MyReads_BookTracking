@@ -26,10 +26,10 @@ class Book extends Component{
         */}
       </div>
       <div className="book-title" >
-      {"No Title..."}
+      {this.props.book.Title}
       </div>
       <div className="book-authors">
-      { "No Authors..."}
+      {this.props.book.Author}
       </div>
 
     </div>
