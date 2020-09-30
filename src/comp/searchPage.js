@@ -15,9 +15,9 @@ class searchPage extends Component{
   }
 
     componentDidMount(){
-      BooksAPI.getAll()
-      .then(searchrespons =>{
-      this.setState({searchArray: searchrespons})
+      BooksAPI.allBooks()
+      .then(response =>{
+      this.setState({searchArray: response})
       });
       }
     updateFind =(find) => {
@@ -27,18 +27,6 @@ class searchPage extends Component{
       if(this.state.find ===''|| this.state.find === undefined) {
         return this.setState({results:[]});
     }
-    BooksAPI.search(this.state.find.trim()).then(searchres=>{
-    if(searchres.error){
-      return this.setState({resultsArray: []})
-    }
-    else{
-    searchres.forEach(b=> {
-      let x = this.state.searchArray.filter(B=> B.id === b.id);
-      if(x[0]){b.shelf=x[0].shelf}
-      });
-    return this.setState({resultsArray: searchres});
-    }
-    })
     }
 
 
@@ -59,7 +47,7 @@ class searchPage extends Component{
          <div className="search-books-results">
           <ol className="books-grid">
           {this.state.resultsArray.map((book, key)=>
-          <Book updatebook={this.updatebook} book={book} key={key} />)}
+          <Book  book={book} key={key} />)}
           </ol>
         </div>
       </div>
