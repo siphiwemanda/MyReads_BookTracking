@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Shelf from './shelf'
 import * as BooksAPI from '../BooksAPI'
+import Book from "./book";
 
  class HomePage extends Component{
   constructor(props){
     super(props)
     this.state ={
-      allBooks: []
+      allBooks: [],
+      find: ""
     }
     }
     componentDidMount(){
@@ -16,6 +18,14 @@ import * as BooksAPI from '../BooksAPI'
         console.log(response)
         })
     }
+   updateFind =(find) => {
+     this.setState({find: find});
+   }
+
+   search(books, searchTerm){
+     return books.filter(book => book.Title.includes(searchTerm) || book.Author.includes(searchTerm))
+   }
+
   render(){
     return(
 
@@ -27,10 +37,6 @@ import * as BooksAPI from '../BooksAPI'
       <div>
         <div className="search-books">
           <div className="search-books-bar">
-            <Link
-              className="close-search"
-              to="/"
-            >Close </Link>
             <div className="search-books-input-wrapper">
               <input type="text" placeholder="Search by title or author"
                      value = {this.state.find}
@@ -38,25 +44,13 @@ import * as BooksAPI from '../BooksAPI'
             </div>
       </div>
         </div>
+        <div className="search-books-results">
+          <ol className="books-grid">
+            {this.search(this.state.allBooks, this.state.find).map((book, key)=>
+              <Book  book={book} key={key} />)}
+          </ol>
+        </div>
       </div>
-
-
-      <div className="list-books-content">
-        <div>
-          <Shelf
-              Name="Books"
-              Allbooks={this.state.allBooks}
-              />
-
-          <Shelf
-            Name="Search Results"
-            Allbooks={this.state.allBooks}
-          />
-        </div>
-        </div>
-        <div className="open-search">
-              <Link to='/Search'>Add a book</Link>
-        </div>
     </div>
   );
 }
