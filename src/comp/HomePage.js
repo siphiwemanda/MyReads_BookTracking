@@ -23,12 +23,35 @@ import * as BooksAPI from '../BooksAPI'
         <div className="list-books-title">
         <h1>The Banned Book Project</h1>
       </div>
+
+      <div>
+        <div className="search-books">
+          <div className="search-books-bar">
+            <Link
+              className="close-search"
+              to="/"
+            >Close </Link>
+            <div className="search-books-input-wrapper">
+              <input type="text" placeholder="Search by title or author"
+                     value = {this.state.find}
+                     onChange={(event)=> this.updateFind(event.target.value)}/>
+            </div>
+      </div>
+        </div>
+      </div>
+
+
       <div className="list-books-content">
         <div>
           <Shelf
               Name="Books"
               Allbooks={this.state.allBooks}
               />
+
+          <Shelf
+            Name="Search Results"
+            Allbooks={this.state.allBooks}
+          />
         </div>
         </div>
         <div className="open-search">
