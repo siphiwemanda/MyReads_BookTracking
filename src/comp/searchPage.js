@@ -24,8 +24,8 @@ class searchPage extends Component{
       this.setState({find: find});
     }
 
-    search(){
-
+    search(books, searchTerm){
+        return books.filter(book => book.Title.includes(searchTerm))
     }
 
 
@@ -46,7 +46,7 @@ class searchPage extends Component{
             </div>
          <div className="search-books-results">
           <ol className="books-grid">
-          {this.state.resultsArray.map((book, key)=>
+          {this.search(this.state.AllBooks, this.state.find).map((book, key)=>
           <Book  book={book} key={key} />)}
           </ol>
         </div>
