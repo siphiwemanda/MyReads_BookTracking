@@ -1,6 +1,5 @@
-# The Banned Book Project Front En
-Started as Part of the Udacity Front End Web Developer Nanodegreee Developed furthered after doing the udacity full stack nano degree to be the front end of the baned book project.
-
+# The Banned Book Project Front End
+Started as part of the Udacity Front End Web Developer Nanodegreee and developed furthered after doing the Udacity full-stack Nanodegree.
 # Run the Application
 How to run this project
 * Download as .zip file or clone this repository
