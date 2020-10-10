@@ -36,7 +36,7 @@ import Book from "./book";
         <div className="search-books">
           <div className="search-books-bar">
             <div className="search-books-input-wrapper">
-              <input type="text" placeholder="Search by title or author"
+              <input type="text" placeholder="Search by title, author or country"
                      value = {this.state.find}
                      onChange={(event)=> this.updateFind(event.target.value)}/>
             </div>

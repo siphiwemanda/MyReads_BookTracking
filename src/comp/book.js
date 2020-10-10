@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import yellow from '../icons/yellow.png'
 
 class Book extends Component{
   render(){
