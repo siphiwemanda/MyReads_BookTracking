@@ -44,8 +44,8 @@ import Book from "./book";
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.search(this.state.allBooks, this.state.find).map((book, key)=>
-              <Book  book={book} key={key} />)}
+            {this.search(this.state.allBooks, this.state.find).map((book)=>
+              <Book  book={book} key={book.id} />)}
           </ol>
         </div>
       </div>
