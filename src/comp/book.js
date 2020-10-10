@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import * as BooksAPI from "../BooksAPI";
 
 class Book extends Component{
+  constructor(props) {
+    super(props);
+    this.sayHello = this.sayHello.bind(this);
+  }
+
+  sayHello(book) {
+    BooksAPI.oneBooks(book).then(res => {
+      console.log(res)
+    })
+  }
   render(){
     return(
       <li>
       <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{
+        <div className="book-cover" onClick={() => this.sayHello(this.props.book.id)} style={{
           width: 128,
           height: 174,
           backgroundImage: `url("${this.props.book["Book cover"]}")`}}>
