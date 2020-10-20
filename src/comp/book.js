@@ -4,10 +4,10 @@ import * as BooksAPI from "../BooksAPI";
 class Book extends Component{
   constructor(props) {
     super(props);
-    this.sayHello = this.sayHello.bind(this);
+    this.getBook = this.getBook.bind(this);
   }
 
-  sayHello(book) {
+  getBook(book) {
     BooksAPI.oneBooks(book).then(res => {
       console.log(res)
     })
@@ -17,7 +17,7 @@ class Book extends Component{
       <li>
       <div className="book">
       <div className="book-top">
-        <div className="book-cover" onClick={() => this.sayHello(this.props.book.id)} style={{
+        <div className="book-cover" onClick={() => this.getBook(this.props.book.id)} style={{
           width: 128,
           height: 174,
           backgroundImage: `url("${this.props.book["Book cover"]}")`}}>
